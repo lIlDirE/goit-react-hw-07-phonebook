@@ -13,7 +13,7 @@ const contactInitialState = {
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: contactInitialState.items,
+  initialState: contactInitialState,
   reducers: {
     addContact: (state, action) => [...state, action.payload],
     removeContact: (state, action) =>

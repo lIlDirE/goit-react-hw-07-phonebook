@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 const ContactList = () => {
   const filter = useSelector(state => state.filter);
   const contacts = useSelector(state => state.contacts.items);
-  const additionalOpitons = useSelector(state => state)
-  console.log(additionalOpitons)
   const visibleContacts = contacts.filter(el =>
     el.name.toLowerCase().includes(filter.toLowerCase())
   );

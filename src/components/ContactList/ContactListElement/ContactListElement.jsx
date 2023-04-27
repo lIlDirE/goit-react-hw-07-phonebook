@@ -1,6 +1,7 @@
+import { deleteContactsThunk } from 'redux/store/thunk';
 import { ContactName,ContactLi,ContactNumber,DeleteButtton } from './ContactListElement.styled';
 import { useDispatch} from 'react-redux';
-import {removeContact} from 'redux/contactSlice/contactSlice'
+// import {removeContact} from 'redux/contactSlice/contactSlice'
 
 const ContactListElement = ({ id, name, number }) => {
 
@@ -11,9 +12,9 @@ const ContactListElement = ({ id, name, number }) => {
 		<ContactName>{name}: </ContactName>
 		<ContactNumber>{number}</ContactNumber>
 		<DeleteButtton
-		  type="button"
+		  type="button"	
 		  onClick={() => {
-			dispatch(removeContact(id));
+			dispatch(deleteContactsThunk(id));
 		  }}
 		>
 		  Delete

@@ -16,7 +16,7 @@ const handleFulfilled = state => {
 };
 
 const handleFulfilledGet = (state, { payload }) => {
-  state.contacts.push(payload);
+  state.items = [...payload];
 };
 
 const handleFulfilledAdd = (state, { payload }) => {
@@ -24,7 +24,8 @@ const handleFulfilledAdd = (state, { payload }) => {
 };
 
 const handleFulfilledDelete = (state, { payload }) => {
-  state.contacts = state.contacts.filter(el => el.id !== payload.id);
+	console.log(state.items);
+  state.items = state.items.filter(el => el.id !== payload.id);
 };
 
 const handleRejected = (state, action) => {
@@ -56,14 +57,14 @@ export const contactsSlice = createSlice({
         ),
         handleRejected
       )
-	  .addMatcher(
+      .addMatcher(
         isAnyOf(
           getContactsThunk.fulfilled,
           addContactsThunk.fulfilled,
           deleteContactsThunk.fulfilled
         ),
         handleFulfilled
-      )
+      );
   },
 });
 

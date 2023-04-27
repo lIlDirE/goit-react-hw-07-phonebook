@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactSlice/contactSlice.js';
 import { nanoid } from '@reduxjs/toolkit';
 import {
   FormContact,
@@ -9,11 +8,12 @@ import {
   FormInput,
   Label,
 } from './ContactForm.styled';
+import { addContactsThunk } from 'redux/store/thunk';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const selector = useSelector(state => state);
+  const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
   function resetForm() {
@@ -46,12 +46,12 @@ export default function ContactForm() {
       number,
     };
 
-    if (selector.contacts.find(
+    if (contacts.find(
         contact => newContact.name.toLowerCase() === contact.name.toLowerCase()
       )
     ) {alert(`${name} is already in contacts`)} 
 	else {
-      dispatch(addContact(newContact));
+      dispatch(addContactsThunk(newContact));
 	  resetForm()
     }
   };

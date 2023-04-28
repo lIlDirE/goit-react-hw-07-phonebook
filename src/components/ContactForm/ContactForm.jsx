@@ -16,6 +16,7 @@ export default function ContactForm() {
   const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
+
   function resetForm() {
     setName('');
     setNumber('');
@@ -37,7 +38,12 @@ export default function ContactForm() {
     }
   };
 
+
+
+
   const handleSubmitForm = e => {
+
+
     e.preventDefault();
 
     const newContact = {

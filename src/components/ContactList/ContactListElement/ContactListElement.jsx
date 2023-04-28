@@ -1,7 +1,7 @@
 import { deleteContactsThunk } from 'redux/store/thunk';
 import { ContactName,ContactLi,ContactNumber,DeleteButtton } from './ContactListElement.styled';
 import { useDispatch} from 'react-redux';
-// import {removeContact} from 'redux/contactSlice/contactSlice'
+
 
 const ContactListElement = ({ id, name, number }) => {
 

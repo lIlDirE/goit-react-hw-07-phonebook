@@ -2,6 +2,9 @@ import ContactListElement from './ContactListElement/ContactListElement';
 import { useSelector } from 'react-redux';
 
 const ContactList = () => {
+
+
+
   const filter = useSelector(state => state.filter);
   const contacts = useSelector(state => state.contacts.items);
   const visibleContacts = contacts.filter(el =>

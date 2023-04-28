@@ -20,12 +20,13 @@ const handleFulfilledGet = (state, { payload }) => {
 };
 
 const handleFulfilledAdd = (state, { payload }) => {
-  state.contacts = payload;
+	state.items = [...state.items, payload];
 };
 
 const handleFulfilledDelete = (state, { payload }) => {
-	console.log(state.items);
+
   state.items = state.items.filter(el => el.id !== payload.id);
+  console.log(state.items.filter(el => el.id !== payload.id));
 };
 
 const handleRejected = (state, action) => {

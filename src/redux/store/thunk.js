@@ -6,7 +6,7 @@ export const getContactsThunk = createAsyncThunk(
   async () => getContacts()
 );
 
-export const addContactsThunk = createAsyncThunk('contacts/addContact', data =>
+export const addContactsThunk = createAsyncThunk('contacts/addContact', async (data) =>
   addContact(data)
 );
 
